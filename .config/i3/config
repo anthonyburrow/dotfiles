@@ -3,11 +3,19 @@
 ###############################################################
 
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/pictures/wallpapers/moebius1.png
+exec --no-startup-id feh --bg-fill ~/pictures/wallpapers/cyan.png
 
 # gaps
 gaps inner 20
 gaps outer 0
+
+###############################################################
+##                           colors                          ##
+###############################################################
+
+set_from_resource $bg background
+set_from_resource $fg foreground
+set_from_resource $accent1 color6
 
 ###############################################################
 ##                          settings                         ##
@@ -78,10 +86,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# class                 border  backgr. text    indicator child_border
-client.focused_inactive #bababa #212121 #d9d9d9 #0d1010 #242424
-client.unfocused        #242424 #212121 #d9d9d9 #424242 #242424
-client.focused          #bababa #242424 #000000 #d9d9d9 #bababa
+# class                 border  backgr.  text  indicator  child_border
+client.focused_inactive $accent1 $bg $bg $bg $bg
+client.unfocused        $bg $bg $bg $bg $bg
+client.focused          $accent1 $bg $bg $accent1 $accent1
 
 ###############################################################
 ##                        workspaces                         ##

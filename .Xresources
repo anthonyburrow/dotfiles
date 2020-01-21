@@ -13,31 +13,31 @@ URxvt*italicFont: xft:Source Code Pro:style=Oblique:size=11:hinting=true
 URxvt*boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=11:hinting=true
 URxvt*letterSpace: 0
 
-!! Color
-urxvt.background: #242424
-urxvt.foreground: #f2f2f2
+!! Colors
+*.background: #202020
+*.foreground: #d9d9d9
 
-! Black + DarkGrey
-*color0:  #000000
-*color8:  #555753
-! DarkRed + Red
-*color1:  #ff6565
-*color9:  #ff8d8d
-! DarkGreen + Green
-*color2:  #93d44f
-*color10: #c8e7a8
-! DarkYellow + Yellow
-*color3:  #eab93d
-*color11: #ffc123
-! DarkBlue + Blue
-*color4:  #204a87
-*color12: #3465a4
-! DarkMagenta + Magenta
-*color5:  #ce5c00
-*color13: #f57900
-!DarkCyan + Cyan (both not tango)
-*color6:  #89b6e2
-*color14: #46a4ff
-! LightGrey + White
-*color7:  #cccccc
-*color15: #ffffff
+! dark blue
+*color0:  #3b4252
+*color8:  #4c566a
+! red
+*color1:  #bf616a
+*color9:  #bf616a
+! green
+*color2:  #a3be8c
+*color10: #a3be8c
+! yellow
+*color3:  #ebcb8b
+*color11: #ebcb8b
+! blue
+*color4:  #81a1c1
+*color12: #81a1c1
+! magenta
+*color5:  #b48ead
+*color13: #b48ead
+!cyan
+*color6:  #88c0d0
+*color14: #8fbcbb
+! white
+*color7:  #e5e9f0
+*color15: #eceff4

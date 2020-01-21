@@ -1,11 +1,9 @@
 [colors]
-background = ${xrdb:background:#222}
+background = ${xrdb:background}
 background-alt = #00000000
-foreground = ${xrdb:color7:#222}
-foreground-alt = ${xrdb:color7:#555}
-primary = ${xrdb:color1:#555}
-secondary = ${xrdb:color2:#555}
-alert = ${xrdb:color3:#555}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:color7}
+accent1 = ${xrdb:color6}
 
 [bar/main]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -52,12 +50,12 @@ index-sort = true
 wrapping-scroll = false
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.background}
+label-mode-background = ${colors.accent1}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.foreground}
+label-focused-background = ${colors.accent1}
 label-focused-foreground = ${colors.background}
 label-focused-padding = 2
 
@@ -95,7 +93,7 @@ ramp-signal-1 = %{A1:killall nm-applet:}%{A}
 ramp-signal-2 = %{A1:killall nm-applet:}%{A}
 ramp-signal-3 = %{A1:killall nm-applet:}%{A}
 ramp-signal-4 = %{A1:killall nm-applet:}%{A}
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = ${colors.foreground}
 
 
 [module/date]
@@ -108,7 +106,7 @@ date-alt = " %Y-%m-%d"
 time = %I:%M %p
 time-alt = %I:%M:%S
 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 
 label = %date% %time%
 
