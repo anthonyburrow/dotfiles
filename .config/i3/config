@@ -9,10 +9,7 @@ exec --no-startup-id feh --bg-fill ~/pictures/wallpapers/cyan.png
 gaps inner 20
 gaps outer 0
 
-###############################################################
-##                           colors                          ##
-###############################################################
-
+# colors
 set_from_resource $bg background
 set_from_resource $fg foreground
 set_from_resource $accent1 color6
@@ -31,12 +28,6 @@ new_window 1pixel
 # reloading/restaring i3
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-
-# open terminal
-bindsym $mod+Return exec --no-startup-id urxvt
-
-# open dmenu
-bindsym $mod+d exec dmenu_run
 
 ###############################################################
 ##                          windows                          ##
@@ -142,6 +133,16 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+###############################################################
+##                      bind programs                        ##
+###############################################################
+
+# open terminal
+bindsym $mod+Return exec --no-startup-id urxvt
+
+# open dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Source Code Pro-10" -nb '$bg' -nf '$fg' -sb '$accent1' -sf '$bg' -l 10
 
 ###############################################################
 ##                         startup                           ##
