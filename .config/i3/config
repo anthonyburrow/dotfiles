@@ -3,7 +3,7 @@
 ###############################################################
 
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/pictures/wallpapers/cyan.png
+exec --no-startup-id feh --bg-fill ~/.config/wallpapers/gavin.png
 
 # gaps
 gaps inner 20
