@@ -1,0 +1,144 @@
+####################
+# USB Installation #
+####################
+
+# rufus -> MBR, BIOS or UEFI, FAT32
+
+
+###################################
+# Connect to the internet (Wi-Fi) #
+###################################
+
+# View interfaces
+ip link
+
+# open iwctl shell
+iwctl
+
+# lists devices, only one was "wlan0"
+> device list
+
+# not sure what this did
+> station wlan0 scan
+
+# list SSIDs
+> station wlan0 get-networks
+
+# Connect, it will prompt for password (can tab complete)
+> station wlan0 connect "OwO x3"
+
+> exit
+
+ping google.com
+
+
+########################################
+# Formatting and Making New Partitions #
+########################################
+
+# list block devices, such as /dev/sda, /dev/nvme0n1
+fdisk -l
+
+# Go into command mode on the storage/OS device
+fdisk /dev/nvme0n1
+
+# print partitions
+> p
+
+# delete partition, it will ask for number to delete
+> d
+
+# Delete all but EFI System...use the old EFI but format it later (make sure
+# it's 260Mb)
+
+# Now create new partitions (filesystem and swap).
+> n
+
+#  It'll ask for number. Let this be swap first
+> 2
+
+# Then first sector (leave default) and last sector (specify size instead):
+> 8G
+
+# Make the filesystem partition now:
+> n
+> 3
+> <default first>, <default last>
+
+# change the type of swap
+> t
+> 2
+
+# list all with L (get out with q)
+> L
+
+# pick the one that is "Linux swap"
+> 19
+
+# write the changes to disk
+> w
+
+# Format EFI system
+mkfs.fat -F32 /dev/nvme0n1p1
+
+# Format the filesystem
+mkfs.ext4 /dev/nvme0n1p3
+
+# Format the swap
+mkswap /dev/nvme0n1p2
+
+# Mount the root partition to /mnt
+mount /dev/nvme0n1p3 /mnt
+
+# Enable swap
+swapon /dev/nvme0n1p2
+
+
+##################################
+# Installation and Configuration #
+##################################
+
+# Install essential packages
+pacstrap /mnt base linux linux-firmware
+
+# At this point I just follow the arch guide commands
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
+hwclock --systohc
+
+# install vi
+pacman -Syu vi
+
+locale-gen
+
+# uncomment "en_US.UTF-8 UTF-8" from /etc/locale.gen
+vi /etc/locale.gen
+
+# create /etc/locale.conf and put in "LANG=en_US.UTF-8"
+vi /etc/locale.conf
+
+# set the password
+passwd
+
+# Fix up EFI stuff if needed (and install grub)
+pacman -S grub efibootmgr
+mkdir /boot/EFI
+mount /dev/nvme0n1p1 /boot/EFI
+
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+grub-mkconfig -o /boot/grub/grub.cfg
+
+//// # install iwd (iwctl) so you can connect to internet later
+//// pacman -Syu iwd
+
+# Internet stuff
+pacman -Syu networkmanager
+pacman -Syu network-manager-applet
+
+# exit and restart, done with install USB
+exit
+reboot

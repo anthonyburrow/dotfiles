@@ -1,0 +1,79 @@
+############
+# Internet #
+############
+
+# I don't know about this one...
+systemctl enable NetworkManager.service
+
+# Somehow this continues working even after reboot
+# and for some reason it didn't work the first time
+# and the next morning (after reboot?) it worked
+nmcli d
+nmcli r wifi on
+nmcli d wifi list
+nmcli d wifi connect "OwO x3" password "JamesFranco666"
+
+# also
+nmtui
+
+
+########
+# sudo #
+########
+
+pacman -Syu sudo
+useradd -m masamune
+passwd masamune
+
+usermod --append --groups wheel masamune
+
+# then edit sudoers file, uncomment the wheel line
+visudo
+"## Uncomment to allow members of group wheel to execute any command
+ %wheel ALL=(ALL) ALL"
+
+
+########
+# rice #
+########
+
+sudo pacman -Syu git i3-gaps xorg-server xorg-xinit rxvt-unicode feh
+
+# install yay (AUR)
+sudo pacman -Syu --needed base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+# try this or just remove it?
+cd ~
+mv yay .yay
+
+yay -S polybar
+
+git config --global user.email "anthony.r.burrow@gmail.com"
+git config --global user.name "Anthony Burrow"
+
+git clone --bare https://github.com/anthonyburrow/dotfiles.git $HOME/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles checkout
+dotfiles status
+
+# if dotfiles lists untracked files:
+dotfiles config --local status.showUntrackedFiles no
+
+# can now do:
+# dotfiles add <some files>
+# dotfiles commit -m "message"
+# dotfiles push origin master
+
+
+##################
+# Other Programs #
+##################
+
+firefox
+vs code
+discord
+flux
+ssh keys
