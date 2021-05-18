@@ -3,7 +3,7 @@
 ###############################################################
 
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/.config/wallpapers/gavin.png
+exec --no-startup-id feh --bg-fill ~/.config/wallpapers/stars.png
 
 # gaps
 gaps inner 20
@@ -12,7 +12,7 @@ gaps outer 0
 # colors
 set_from_resource $bg background
 set_from_resource $fg foreground
-set_from_resource $accent1 color6
+set_from_resource $accent1 color5
 
 ###############################################################
 ##                          settings                         ##
@@ -22,7 +22,7 @@ set_from_resource $accent1 color6
 set $mod Mod1
 
 # hide title bar
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 new_window 1pixel
 
 # reloading/restaring i3
@@ -86,10 +86,10 @@ client.focused          $accent1 $bg $bg $accent1 $accent1
 ##                        workspaces                         ##
 ###############################################################
 
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws1 "1:home"
+set $ws2 "2:code"
+set $ws3 "3:discord"
+set $ws4 "4:browser"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -157,3 +157,14 @@ exec --no-startup-id nm-applet
 # start xss-lock
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# start vs code
+exec --no-startup-id code
+assign [class="Code"] $ws2
+
+# start firefox
+exec --no-startup-id firefox
+assign [class="Firefox"] $ws3
+
+# start discord
+exec --no-startup-id discord
+assign [class="discord"] $ws4

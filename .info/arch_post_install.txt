@@ -37,7 +37,7 @@ visudo
 # rice #
 ########
 
-sudo pacman -Syu git i3-gaps xorg-server xorg-xinit rxvt-unicode feh
+sudo pacman -Syu git i3-gaps xorg-server xorg-xinit rxvt-unicode feh dmenu
 
 # install yay (AUR)
 sudo pacman -Syu --needed base-devel
@@ -68,10 +68,22 @@ dotfiles config --local status.showUntrackedFiles no
 # dotfiles push origin master
 
 
+#########
+# Audio #
+#########
+
+sudo pacman -Syu pulseaudio pulsemixer
+
+# may need a reboot
+
+
 ##################
 # Other Programs #
 ##################
 
+nerd fonts SauceCodePro -> ~/.fonts
+unzip, tar
+python, python-pip
 firefox
 vs code
 discord
