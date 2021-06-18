@@ -86,10 +86,10 @@ client.focused          $accent1 $bg $bg $accent1 $accent1
 ##                        workspaces                         ##
 ###############################################################
 
-set $ws1 "1:home"
-set $ws2 "2:code"
-set $ws3 "3:discord"
-set $ws4 "4:browser"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -158,13 +158,13 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # start vs code
-exec --no-startup-id code
-assign [class="Code"] $ws2
+# exec --no-startup-id code
+# assign [class="Code"] $ws2
 
 # start firefox
-exec --no-startup-id firefox
-assign [class="Firefox"] $ws3
+# exec --no-startup-id firefox
+# assign [class="Firefox"] $ws3
 
 # start discord
-exec --no-startup-id discord
-assign [class="discord"] $ws4
+# exec --no-startup-id discord
+# assign [class="discord"] $ws4
