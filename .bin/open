@@ -33,7 +33,7 @@ def open_fn(file: str):
 args = sys.argv[1:]
 
 if not args:
-    print('No given files to open')
+    sys.exit('No given files to open')
 
 for arg in args:
     open_fn(arg)
