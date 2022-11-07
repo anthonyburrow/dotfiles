@@ -16,12 +16,13 @@ set_programs = {
     'c': '/usr/bin/code',
     'cpp': '/usr/bin/code',
     'h': '/usr/bin/code',
+    'ipynb': 'jupyter lab',
 }
 
 default_program = '/usr/bin/code'
 
 def open_fn(file: str):
-    file_ext = file.split('.')[-1]
+    file_ext = file.split('.')[-1].lower()
     try:
         program = set_programs[file_ext]
     except KeyError:

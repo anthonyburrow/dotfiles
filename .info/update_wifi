@@ -1,0 +1,4 @@
+nmcli c edit "OU WIFI"
+> set 802-1x.password MYPASSWORD
+> save
+> quit
