@@ -1,0 +1,30 @@
+#!/usr/bin/python
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('TkAgg')
+from spextractor import Spextractor
+import sys
+
+
+file, z = sys.argv[1:]
+z = float(z)
+
+
+spex = Spextractor(file, z=z)
+data = spex.data
+
+wave = data[:, 0]
+flux = data[:, 1]
+flux_err = data[:, 2]
+
+# Plot
+fig, ax = plt.subplots(dpi=125)
+
+ax.plot(wave, flux)
+
+ax.set_xlabel('Rest wavelength')
+ax.set_ylabel('Normalized flux')
+
+ax.set_ylim(0., 1.)
+
+plt.show()
