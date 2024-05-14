@@ -51,6 +51,9 @@ mv yay .yay
 
 yay -S polybar
 
+# polybar fonts
+sudo pacman -S nerd-fonts
+
 git config --global user.email "anthony.r.burrow@gmail.com"
 git config --global user.name "Anthony Burrow"
 

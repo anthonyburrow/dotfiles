@@ -16,8 +16,8 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = Source Code Pro:size=11:antialias=true;2
-font-1 = SauceCodePro NF:style=Regular:antialias=true:size=16;4
+font-0 = SourceCodePro:size=12:antialias=true;3
+font-1 = SauceCodePro Nerd Font:size=12:antialias=true;3
 
 line-size = 3
 line-color = #f00
@@ -33,7 +33,7 @@ module-margin-right = 2
 
 modules-left = i3
 modules-center = date
-modules-right = wlan battery
+modules-right = wlan pulseaudio battery
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -102,7 +102,7 @@ time-format = %H:%M
 ;   <ramp-capacity>
 ;   <animation-(dis)charging>
 format-charging = <ramp-capacity> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity>  <label-discharging>
 format-full = <label-full>
 
 label-charging = ﯢ
@@ -122,17 +122,51 @@ type = internal/network
 interface = wlan0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal>  <label-connected>
 label-connected = %{A1:nm-applet:}%essid%%{A}
 
 format-disconnected = %{A1:killall nm-applet:}{A}
 
-ramp-signal-0 = %{A1:killall nm-applet:}直%{A}
-ramp-signal-1 = %{A1:killall nm-applet:}直%{A}
-ramp-signal-2 = %{A1:killall nm-applet:}直%{A}
-ramp-signal-3 = %{A1:killall nm-applet:}直%{A}
-ramp-signal-4 = %{A1:killall nm-applet:}直%{A}
+ramp-signal-0 = %{A1:killall nm-applet:}%{A}
+ramp-signal-1 = %{A1:killall nm-applet:}%{A}
+ramp-signal-2 = %{A1:killall nm-applet:}%{A}
+ramp-signal-3 = %{A1:killall nm-applet:}%{A}
+ramp-signal-4 = %{A1:killall nm-applet:}%{A}
 ramp-signal-foreground = ${colors.foreground}
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+use-ui-max = true
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume>  <label-volume>
+format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-muted = 󰕿 [mute]
+label-muted-foreground = #878787
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 󰕿
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+; Right and Middle click
+; click-right = pavucontrol
+; click-middle = 
 
 
 [module/date]
