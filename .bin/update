@@ -1,2 +1,9 @@
 #!/usr/bin/bash
-sudo pacman -Sy archlinux-keyring && sudo pacman -Su
+
+# Remove orphans
+sudo pacman -Qdtq | sudo pacman -Rns -
+yay -Yc
+
+# Update
+sudo pacman -Sy archlinux-keyring && sudo pacman -Syu
+yay
