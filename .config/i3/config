@@ -154,6 +154,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # start NetworkManager
 exec --no-startup-id nm-applet
 
+# start udiskie (usb mounter)
+exec --no-startup-id udiskie
+
 # start xss-lock
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
