@@ -4,10 +4,16 @@ xset b off
 # Fix for urxvt
 clear
 
+export PATH="$HOME/.bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+
+export PYTHONPATH="$PYTHONPATH:$HOME/.bin/abpy"
+export PYTHONPATH="$PYTHONPATH:$HOME/.bin/python_scripts"
+
 DEV_DIR="$HOME/dev"
 VENV_BIN_DIR="$DEV_DIR/.venv/bin"
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias pip_dev="$VENV_BIN_DIR/pip"
 alias jupyter_dev="$VENV_BIN_DIR/jupyter"
 
