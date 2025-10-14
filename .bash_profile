@@ -11,11 +11,15 @@ export PATH=$PATH:$HOME/.local/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/.bin/abpy
 export PYTHONPATH=$PYTHONPATH:$HOME/.bin/python_scripts
 
-alias devpip="$HOME/dev/.venv/bin/python -m pip"
+DEV_DIR="$HOME/dev"
+VENV_BIN_DIR="$DEV_DIR/.venv/bin"
+
+alias pip_dev="$VENV_BIN_DIR/pip"
+alias jupyter_dev="$VENV_BIN_DIR/jupyter"
 
 python() {
     local dir="$PWD"
-    local fallback="$HOME/dev/.venv/bin/python"
+    local fallback="$VENV_BIN_DIR/python"
 
     # Search upward for a .venv
     while [ "$dir" != "/" ]; do
