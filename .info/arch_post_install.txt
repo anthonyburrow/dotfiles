@@ -35,7 +35,7 @@ visudo
 # rice #
 ########
 
-sudo pacman -Syu git i3-wm xorg-server xorg-xinit feh
+sudo pacman -Syu git i3-wm xorg-server xorg-xinit rxvt-unicode feh
 # Choose ttf-dejavu for fonts
 
 # install yay (AUR)
@@ -54,6 +54,7 @@ git config --global user.name "Anthony Burrow"
 
 git clone --bare https://github.com/anthonyburrow/dotfiles.git $HOME/.dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# May need to remove (old) .bash_profile, .bashrc
 dotfiles checkout
 dotfiles status
 
