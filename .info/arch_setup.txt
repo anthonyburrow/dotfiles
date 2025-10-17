@@ -2,7 +2,7 @@
 # USB Installation #
 ####################
 
-# rufus -> MBR, BIOS or UEFI, FAT32
+# rufus -> GPT (uses UEFI)
 
 
 ###################################
@@ -94,24 +94,63 @@ mount /dev/nvme0n1p3 /mnt
 swapon /dev/nvme0n1p2
 
 
+################################################
+# Partitioning/Formatting with Dual Boot (EFI) #
+################################################
+
+# Make sure Windows is defragged then shrink
+# Disk Management > Right click drive > shrink by amount to make free space
+
+# In Arch:
+
+# Show disks; find sda for the drive you want (/dev/sda for this)
+lsblk
+
+# Use this and make "New" on Free Space for
+# 1. Root - 40-60 GB Linux Filesystem
+# 2. Home - [Remainder of space] Linux Filesystem
+# 3. Swap - 2-8 GB Linux Swap
+# Remember to change types accordingly
+cfdisk /dev/sda
+
+# Format partitions
+mkfs.ext4 /dev/sda5   # root
+mkfs.ext4 /dev/sda6   # home (optional, if you made it)
+mkswap /dev/sda7      # swap
+
+# Mount everything
+mount /dev/sda5 /mnt            # root
+
+mkdir /mnt/home
+mount /dev/sda6 /mnt/home       # home
+
+mkdir -p /mnt/boot/efi
+mount /dev/sda2 /mnt/boot/efi   # efi
+
+swapon /dev/sda7
+
 ##################################
 # Installation and Configuration #
 ##################################
 
 # Install essential packages
 pacstrap /mnt base linux linux-firmware
-
-# At this point I just follow the arch guide commands
 genfstab -U /mnt >> /mnt/etc/fstab
-
 arch-chroot /mnt
 
+# Setup bootloader
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Set timezone
 ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc
 
 # install vi
 pacman -Syu vi
 
+# Set locale
 locale-gen
 
 # uncomment "en_US.UTF-8 UTF-8" from /etc/locale.gen
@@ -122,15 +161,6 @@ vi /etc/locale.conf
 
 # set the password
 passwd
-
-# Fix up EFI stuff if needed (and install grub)
-pacman -S grub efibootmgr
-mkdir /boot/EFI
-mount /dev/nvme0n1p1 /boot/EFI
-
-grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
-cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
-grub-mkconfig -o /boot/grub/grub.cfg
 
 //// # install iwd (iwctl) so you can connect to internet later
 //// pacman -Syu iwd
