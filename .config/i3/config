@@ -142,7 +142,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Return exec --no-startup-id urxvt
 
 # open dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "Source Code Pro-10" -nb '$bg' -nf '$fg' -sb '$accent1' -sf '$bg' -l 10
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/config.rasi
 
 ###############################################################
 ##                         startup                           ##

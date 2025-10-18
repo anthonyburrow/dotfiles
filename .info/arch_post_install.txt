@@ -30,13 +30,26 @@ visudo
 "## Uncomment to allow members of group wheel to execute any command
  %wheel ALL=(ALL) ALL"
 
+hostnamectl set-hostname <machine_name>
+
+#########
+# Audio #
+#########
+
+sudo pacman -Syu pulseaudio pulsemixer
+
+# may need a reboot
+
 
 ########
 # rice #
 ########
 
-sudo pacman -Syu git i3-wm xorg-server xorg-xinit rxvt-unicode feh
+sudo pacman -Syu git i3-wm xorg-server xorg-xinit rxvt-unicode feh rofi
 # Choose ttf-dejavu for fonts
+
+# Idk why but this was also needed for rofi to work
+sudo locale-gen en_US.UTF-8
 
 # install yay (AUR)
 sudo pacman -Syu --needed base-devel
@@ -67,24 +80,16 @@ dotfiles config --local status.showUntrackedFiles no
 # dotfiles push origin master
 
 
-#########
-# Audio #
-#########
-
-sudo pacman -Syu pulseaudio pulsemixer
-
-# may need a reboot
-
-
 ##################
 # Other Programs #
 ##################
 
+sudo pacman -Syu firefox
+yay -S visual-studio-code-bin
+
 nerd fonts SauceCodePro -> ~/.fonts
 unzip, tar
 python, python-pip
-firefox
-vs code
 discord
 flux
 ssh keys
