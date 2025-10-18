@@ -103,12 +103,8 @@ dotfiles remote set-url origin git@github.com:anthonyburrow/dotfiles.git
 # Other Programs #
 ##################
 
-sudo pacman -Syu firefox
-yay -S visual-studio-code-bin
+sudo pacman -Syu firefox discord zip unzip
+yay -S visual-studio-code-bin slack-desktop
 
-nerd fonts SauceCodePro -> ~/.fonts
-unzip, tar
 python, python-pip
-discord
 flux
-ssh keys
