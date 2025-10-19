@@ -1,0 +1,2 @@
+pactl set-sink-mute @DEFAULT_SINK@ false
+pactl set-sink-volume 0 ${1}%
