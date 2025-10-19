@@ -17,8 +17,9 @@ Xft.dpi: 96
 Xft.antialias: true
 
 !! Appearance
-urxvt.termName: rxvt-unicode
-urxvt.scrollBar: false
+URxvt*depth: 32
+URxvt.termName: rxvt-unicode-256color
+URxvt.scrollBar: false
 
 !! Font
 URxvt*font: xft:DejaVu Sans Mono:size=12:hinting=true

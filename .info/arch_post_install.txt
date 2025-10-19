@@ -113,3 +113,4 @@ yay -S visual-studio-code-bin slack-desktop
 
 python, python-pip
 flux
+scrot

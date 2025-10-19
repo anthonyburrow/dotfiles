@@ -14,8 +14,17 @@ DEV_DIR="$HOME/dev"
 VENV_BIN_DIR="$DEV_DIR/.venv/bin"
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias pip_dev="$VENV_BIN_DIR/pip"
 alias jupyter_dev="$VENV_BIN_DIR/jupyter"
+alias pip_dev="$VENV_BIN_DIR/pip"
+
+eval "$(dircolors -b ~/.config/dircolors)"
+alias ls='ls --color=auto'
+
+RESET="\[\e[0m\]"
+USERCOLOR="\[\e[38;2;180;142;173m\]"
+HOSTCOLOR="\[\e[38;2;136;192;208m\]"
+DIRCOLOR="\[\e[38;5;67m\]"
+PS1="${USERCOLOR}\u${RESET}@${HOSTCOLOR}\h ${DIRCOLOR}\w ${RESET}\$ "
 
 python() {
     local dir="$PWD"
