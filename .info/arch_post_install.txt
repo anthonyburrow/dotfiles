@@ -103,8 +103,13 @@ dotfiles remote set-url origin git@github.com:anthonyburrow/dotfiles.git
 # Other Programs #
 ##################
 
-sudo pacman -Syu firefox discord zip unzip
+sudo pacman -Syu firefox discord zip unzip gnome-keyring libsecret
 yay -S visual-studio-code-bin slack-desktop
+
+# VS Code:
+# Command palette -> "Configure Runtime Arguments" -> Insert this into argv.json
+"password-store": "gnome-libsecret"
+# Then reopen VS code, just use blank passwords
 
 python, python-pip
 flux
