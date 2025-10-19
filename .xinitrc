@@ -5,6 +5,13 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+if [ -f ~/.config/colors ]; then
+    source ~/.config/colors
+    export $(cut -d= -f1 ~/.config/colors)
+fi
+
+$HOME/.config/gen_Xresources
+
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi

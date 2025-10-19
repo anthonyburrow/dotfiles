@@ -1,9 +1,10 @@
 [colors]
-background = ${xrdb:background}
-background-alt = #00000000
-foreground = ${xrdb:foreground}
-foreground-alt = ${xrdb:color7}
-accent1 = ${xrdb:color5}
+background = ${env:COLOR_BACKGROUND}
+foreground = ${env:COLOR_FOREGROUND}
+accent1 = ${env:COLOR_ACCENT1}
+
+background-alt = #000000
+foreground-alt = #ffffff
 
 [bar/main]
 ;monitor = ${env:MONITOR:HDMI-2}
