@@ -36,6 +36,14 @@ translate_key() {
         COLOR_FOREGROUND) echo ".foreground" ;;
         COLOR_ACCENT0)    echo "color0" ;;
         COLOR_ACCENT1)    echo "color1" ;;
+        COLOR_ACCENT2)    echo "color2" ;;
+        COLOR_ACCENT3)    echo "color3" ;;
+        COLOR_ACCENT4)    echo "color4" ;;
+        COLOR_ACCENT5)    echo "color5" ;;
+        COLOR_ACCENT6)    echo "color6" ;;
+        COLOR_ACCENT7)    echo "color7" ;;
+        COLOR_ACCENT8)    echo "color8" ;;
+        COLOR_ACCENT9)    echo "color9" ;;
         *) echo "$1" ;;
     esac
 }
