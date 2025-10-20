@@ -9,7 +9,7 @@ case "$HOST" in
                --output DP-2 --mode 2560x1440 --rate 144 --right-of DP-1
         ;;
     # Laptop
-    laptop-name)
+    masamune)
         ;;
     *)
         ;;
