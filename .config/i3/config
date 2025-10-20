@@ -141,33 +141,21 @@ bindsym $mod+r mode "resize"
 # open terminal
 bindsym $mod+Return exec --no-startup-id urxvt
 
-# open dmenu
+# open rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/config.rasi
 
 ###############################################################
 ##                         startup                           ##
 ###############################################################
 
+exec_always --no-startup-id ~/.bin/displayToDefault
+
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# start NetworkManager
 exec --no-startup-id nm-applet
-
-# start udiskie (usb mounter)
 exec --no-startup-id udiskie
+exec --no-startup-id redshift
 
 # start xss-lock
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# start vs code
-# exec --no-startup-id code
-# assign [class="Code"] $ws2
-
-# start firefox
-# exec --no-startup-id firefox
-# assign [class="Firefox"] $ws3
-
-# start discord
-# exec --no-startup-id discord
-# assign [class="discord"] $ws4

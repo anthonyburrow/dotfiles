@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+HOST=$(cat /etc/hostname)
+
+case "$HOST" in
+    # Desktop 
+    ragnarok)
+        xrandr --output DP-1 --mode 2560x1440 --rate 144 --primary \
+               --output DP-2 --mode 2560x1440 --rate 144 --right-of DP-1
+        ;;
+    # Laptop
+    laptop-name)
+        ;;
+    *)
+        ;;
+esac

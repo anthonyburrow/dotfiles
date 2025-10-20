@@ -45,7 +45,7 @@ sudo pacman -Syu pulseaudio pulsemixer
 # rice #
 ########
 
-sudo pacman -Syu git i3-wm xorg-server xorg-xinit rxvt-unicode feh rofi
+sudo pacman -Syu git i3-wm xorg-server xorg-xinit xorg-xrandr rxvt-unicode feh rofi
 # Choose ttf-dejavu for fonts
 
 # Idk why but this was also needed for rofi to work
@@ -103,7 +103,9 @@ dotfiles remote set-url origin git@github.com:anthonyburrow/dotfiles.git
 # Other Programs #
 ##################
 
-sudo pacman -Syu firefox discord zip unzip gnome-keyring libsecret
+.dev/setup_dev
+
+sudo pacman -Syu firefox discord zip unzip gnome-keyring libsecret scrot redshift
 yay -S visual-studio-code-bin slack-desktop
 
 # VS Code:
@@ -111,6 +113,4 @@ yay -S visual-studio-code-bin slack-desktop
 "password-store": "gnome-libsecret"
 # Then reopen VS code, just use blank passwords
 
-python, python-pip
 flux
-scrot
