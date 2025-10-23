@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+read -rp "This will clean caches, logs, and unused packages. Continue? [y/N]: " confirm
+[[ "$confirm" =~ ^[Yy]$ ]] || { echo "Aborted."; exit 1; }
+
+echo
+echo "--- Updating system ---"
+sudo pacman -Syu --noconfirm
+yay -Syu --noconfirm --removemake --cleanafter
+
+echo
+echo "--- Removing unused packages and dependencies ---"
+orphans=$(pacman -Qdtq || true)
+if [[ -n "$orphans" ]]; then
+    echo "Removing orphans: $orphans"
+    sudo pacman -Rns --noconfirm $orphans
+else
+    echo "No orphaned packages found."
+fi
+
+echo
+echo "--- Cleaning pacman cache ---"
+sudo pacman -Sc --noconfirm
+
+echo
+echo "--- Cleaning package cache from yay/AUR ---"
+if command -v yay &>/dev/null; then
+    yay -Sc --noconfirm
+fi
+
+echo
+echo "--- Cleaning system logs ---"
+sudo journalctl --vacuum-time=2weeks
+
+echo
+echo "--- Cleaning temporary files ---"
+sudo rm -rf /tmp/*
+sudo rm -rf ~/.cache/*
+sudo rm -rf ~/.local/share/Trash/*
+
+echo
+echo "--- Checking for broken symlinks ---"
+find "$HOME" -xtype l -print -delete || true
+
+echo
+echo "Cleaning complete."
