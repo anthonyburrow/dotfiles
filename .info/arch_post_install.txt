@@ -45,7 +45,7 @@ sudo pacman -Syu pulseaudio pulsemixer
 # rice #
 ########
 
-sudo pacman -Syu git i3-wm xorg-server xorg-xinit xorg-xrandr rxvt-unicode feh rofi
+sudo pacman -Syu git i3-wm xorg-server xorg-xinit xorg-xrandr rxvt-unicode feh rofi nerd-fonts
 # Choose ttf-dejavu for fonts
 
 # Idk why but this was also needed for rofi to work
@@ -58,9 +58,6 @@ cd .yay
 makepkg -si
 
 yay -S polybar
-
-# polybar fonts
-sudo pacman -S nerd-fonts
 
 git config --global user.email "anthony.r.burrow@gmail.com"
 git config --global user.name "Anthony Burrow"

@@ -1,40 +1,41 @@
-#!/usr/bin/env python
+#!/usr/bin/env bash
 
-import sys
-from subprocess import Popen
+VS_CODE="/usr/bin/code"
+JUPYTER="/usr/bin/jupyter lab"
+FEH="/usr/bin/feh --auto-zoom --scale-down --start-at"
+FIREFOX="/usr/bin/firefox"
 
-set_programs = {
-    # Images
-    'png': '/usr/bin/qimgv',
-    'jpg': '/usr/bin/qimgv',
-    # PDFs
-    'pdf': '/usr/bin/firefox',
-    # Text and Code
-    'txt': '/usr/bin/code',
-    'dat': '/usr/bin/code',
-    'py': '/usr/bin/code',
-    'c': '/usr/bin/code',
-    'cpp': '/usr/bin/code',
-    'h': '/usr/bin/code',
-    'ipynb': 'jupyter lab',
-}
+declare -A programs=(
+  [png]="$FEH"
+  [jpg]="$FEH"
+  [jpeg]="$FEH"
+  [pdf]="$FIREFOX"
+  [txt]="$VS_CODE"
+  [dat]="$VS_CODE"
+  [py]="$VS_CODE"
+  [c]="$VS_CODE"
+  [cpp]="$VS_CODE"
+  [h]="$VS_CODE"
+  [ipynb]="$JUPYTER"
+)
 
-default_program = '/usr/bin/code'
+default_program="$VS_CODE"
 
-def open_fn(file: str):
-    file_ext = file.split('.')[-1].lower()
-    try:
-        program = set_programs[file_ext]
-    except KeyError:
-        program = default_program
+if [[ $# -eq 0 ]]; then
+  echo "No files provided."
+  exit 1
+fi
 
-    print(f'Opening {file} with {program}')
-    Popen([program, file], stdin=None, stdout=None, stderr=None)
+for file in "$@"; do
+  if [[ ! -e "$file" ]]; then
+    echo "File not found: $file"
+    continue
+  fi
 
-args = sys.argv[1:]
+  ext="${file##*.}"
+  ext="${ext,,}"  # lowercase
+  program="${programs[$ext]:-$default_program}"
 
-if not args:
-    sys.exit('No given files to open')
-
-for arg in args:
-    open_fn(arg)
+  # echo "Opening $file with $program"
+  nohup $program "$file" >/dev/null 2>&1 &
+done
