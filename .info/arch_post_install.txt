@@ -114,6 +114,6 @@ yay -S visual-studio-code-bin slack-desktop
 # Then reopen VS code, just use blank passwords
 
 # udiskie
-mkdir -p /run/media/$USER
+sudo mkdir -p /run/media/$USER
 ln -sf /run/media/$USER ~/.usb
 
