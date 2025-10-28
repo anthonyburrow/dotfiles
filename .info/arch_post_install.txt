@@ -45,8 +45,8 @@ sudo pacman -Syu pulseaudio pulsemixer
 # rice #
 ########
 
-sudo pacman -Syu git i3-wm xorg-server xorg-xinit xorg-xrandr rxvt-unicode feh rofi nerd-fonts
-# Choose ttf-dejavu for fonts
+sudo pacman -Syu git i3-wm xorg-server xorg-xinit xorg-xrandr rxvt-unicode feh rofi nerd-fonts noto-fonts ttf-fira-code
+# Choose ttf-dejavu for fonts?
 
 # Idk why but this was also needed for rofi to work
 sudo locale-gen en_US.UTF-8
@@ -106,6 +106,7 @@ sudo pacman -Syu firefox discord zip unzip gnome-keyring libsecret scrot redshif
 yay -S visual-studio-code-bin slack-desktop
 
 # VS Code:
+# Set Editor: Font Family -> <'Fira Code Retina', monospace>
 # Command palette -> "Configure Runtime Arguments" -> Insert this into argv.json
 "password-store": "gnome-libsecret"
 # Then reopen VS code, just use blank passwords

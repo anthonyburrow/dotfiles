@@ -1,5 +1,5 @@
 * {
-    font:   "FiraCode Nerd Font Medium 12";
+    font:   "Noto Sans Medium 12";
 
     bg0:     ${COLOR_BACKGROUND};
     bg1:     ${COLOR_BACKGROUND};
