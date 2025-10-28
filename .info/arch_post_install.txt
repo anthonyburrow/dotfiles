@@ -100,8 +100,6 @@ dotfiles remote set-url origin git@github.com:anthonyburrow/dotfiles.git
 # Other Programs #
 ##################
 
-.dev/setup_dev
-
 sudo pacman -Syu firefox discord zip unzip gnome-keyring libsecret scrot redshift udiskie
 yay -S visual-studio-code-bin slack-desktop
 
@@ -115,3 +113,6 @@ yay -S visual-studio-code-bin slack-desktop
 sudo mkdir -p /run/media/$USER
 ln -sf /run/media/$USER ~/.usb
 
+# Setup scripts (need dotfiles)
+.dev/setup_dev
+.setup/setup_lightdm
