@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+echo "[*] Installing programs..."
+
+sudo pacman -S --needed --noconfirm \
+    firefox \
+    discord \
+    zip \
+    unzip \
+    gnome-keyring \
+    libsecret \
+    scrot \
+    redshift \
+    udiskie \
+
+yay -S --needed --noconfirm \
+    visual-studio-code-bin \
+    slack-desktop \
+
+echo "Done."

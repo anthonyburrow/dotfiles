@@ -100,8 +100,7 @@ dotfiles remote set-url origin git@github.com:anthonyburrow/dotfiles.git
 # Other Programs #
 ##################
 
-sudo pacman -Syu firefox discord zip unzip gnome-keyring libsecret scrot redshift udiskie
-yay -S visual-studio-code-bin slack-desktop
+.setup/setup_programs
 
 # VS Code:
 # Set Editor: Font Family -> <'Fira Code Retina', monospace>
@@ -113,6 +112,5 @@ yay -S visual-studio-code-bin slack-desktop
 sudo mkdir -p /run/media/$USER
 ln -sf /run/media/$USER ~/.usb
 
-# Setup scripts (need dotfiles)
+# Setup scripts (need dotfiles for some)
 .dev/setup_dev
-.setup/setup_lightdm
