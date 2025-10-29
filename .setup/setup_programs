@@ -18,13 +18,17 @@ sudo pacman -S --needed --noconfirm \
     pulsemixer \
     firefox \
     discord \
-    zip \
-    unzip \
-    vim \
     gnome-keyring \
     libsecret \
     scrot \
     redshift \
+    vim \
+    zip \
+    unzip \
+    gcc \
+    make \
+    cmake \
+    which \
 
 yay -S --needed --noconfirm \
     polybar \
