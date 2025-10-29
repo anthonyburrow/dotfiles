@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+echo "[*] Installing udiskie..."
+sudo pacman -S --needed --noconfirm udiskie
+
+echo "[*] Creating USB mount point..."
+sudo mkdir -p /run/media/$USER
+ln -sf /run/media/$USER $HOME/.usb
+
+echo "Done."

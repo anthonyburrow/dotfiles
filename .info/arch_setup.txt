@@ -159,6 +159,8 @@ vi /etc/locale.gen
 # create /etc/locale.conf and put in "LANG=en_US.UTF-8"
 vi /etc/locale.conf
 
+sudo locale-gen en_US.UTF-8
+
 # set the password
 passwd
 

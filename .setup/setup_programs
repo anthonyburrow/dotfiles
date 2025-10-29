@@ -4,17 +4,30 @@ set -e
 echo "[*] Installing programs..."
 
 sudo pacman -S --needed --noconfirm \
+    i3-wm \
+    xorg-server \
+    xorg-xinit \
+    xorg-xrandr \
+    rxvt-unicode \
+    feh \
+    rofi \
+    nerd-fonts \
+    noto-fonts \
+    ttf-fira-code \
+    pulseaudio \
+    pulsemixer \
     firefox \
     discord \
     zip \
     unzip \
+    vim \
     gnome-keyring \
     libsecret \
     scrot \
     redshift \
-    udiskie \
 
 yay -S --needed --noconfirm \
+    polybar \
     visual-studio-code-bin \
     slack-desktop \
 

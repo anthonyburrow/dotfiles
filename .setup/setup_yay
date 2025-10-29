@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+echo "[*] Installing requirements..."
+sudo pacman -Syu --needed base-devel
+
+echo "[*] Cloning yay repository and installing yay..."
+git clone https://aur.archlinux.org/yay.git .yay
+cd .yay
+makepkg -si
+cd $HOME
+
+echo "Done."

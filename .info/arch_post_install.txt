@@ -32,85 +32,45 @@ visudo
 
 hostnamectl set-hostname <machine_name>
 
-#########
-# Audio #
-#########
 
-sudo pacman -Syu pulseaudio pulsemixer
+############
+# dotfiles #
+############
 
-# may need a reboot
+sudo pacman -S --needed git
+
+git clone --bare https://github.com/anthonyburrow/dotfiles.git $HOME/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+echo "[*] Checking out dotfiles..."
+rm $HOME/.bash_profile
+rm $HOME/.bashrc
+dotfiles checkout
+
+dotfiles config --local status.showUntrackedFiles no
 
 
 ########
 # rice #
 ########
 
-sudo pacman -Syu git i3-wm xorg-server xorg-xinit xorg-xrandr rxvt-unicode feh rofi nerd-fonts noto-fonts ttf-fira-code
-# Choose ttf-dejavu for fonts?
-
-# Idk why but this was also needed for rofi to work
-sudo locale-gen en_US.UTF-8
-
-# install yay (AUR)
-sudo pacman -Syu --needed base-devel
-git clone https://aur.archlinux.org/yay.git .yay
-cd .yay
-makepkg -si
-
-yay -S polybar
-
-git config --global user.email "anthony.r.burrow@gmail.com"
-git config --global user.name "Anthony Burrow"
-
-git clone --bare https://github.com/anthonyburrow/dotfiles.git $HOME/.dotfiles
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-# May need to remove (old) .bash_profile, .bashrc
-dotfiles checkout
-dotfiles status
-
-# if dotfiles lists untracked files:
-dotfiles config --local status.showUntrackedFiles no
-
-# can now do:
-# dotfiles add <some files>
-# dotfiles commit -m "message"
-# dotfiles push origin master
-
-
-#########################
-# GitHub Authentication #
-#########################
-
-ssh-keygen -t ed25519 -C "anthony.r.burrow@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
+.setup/setup_git
 
 cat ~/.ssh/id_ed25519.pub
 # Copy-paste output to https://github.com/settings/keys -> New SSH key
 
-git config --global url."git@github.com:".insteadOf "https://github.com/"
-
-# For things that are already cloned (e.g. dotfiles):
-# git remote set-url origin git@github.com:username/repo.git
-
-dotfiles remote set-url origin git@github.com:anthonyburrow/dotfiles.git
+.setup/setup_yay
+.setup/setup_programs
+.setup/setup_udiskie
+.setup/dev
 
 
 ##################
 # Other Programs #
 ##################
 
-.setup/setup_programs
-
 # VS Code:
 # Set Editor: Font Family -> <'Fira Code Retina', monospace>
 # Command palette -> "Configure Runtime Arguments" -> Insert this into argv.json
 "password-store": "gnome-libsecret"
 # Then reopen VS code, just use blank passwords
-
-# udiskie
-sudo mkdir -p /run/media/$USER
-ln -sf /run/media/$USER ~/.usb
-
-# Setup scripts (need dotfiles for some)
-.dev/setup_dev
