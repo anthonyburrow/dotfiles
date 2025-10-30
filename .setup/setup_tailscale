@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+echo "[*] Installing Tailscale packages..."
+
+sudo pacman -S --needed --noconfirm \
+    tailscale \
+
+echo "[*] Starting and enabling Tailscale service..."
+
+sudo systemctl enable --now tailscaled
+sudo tailscale up
+
+echo "Done."
