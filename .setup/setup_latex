@@ -7,5 +7,7 @@ sudo pacman -S --needed --noconfirm \
     texlive-core \
     texlive-latexextra \
     texlive-bibtexextra \
+    texlive-binextra \
+    texlive-plaingeneric \
 
 echo "Done."
