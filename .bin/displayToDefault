@@ -24,4 +24,9 @@ case "$HOST" in
             xrandr --output "${dps[0]}" --mode 2560x1440 --rate 144 --primary
         fi
         ;;
+    # Laptop
+    masamune)
+        ;;
+    *)
+        ;;
 esac
