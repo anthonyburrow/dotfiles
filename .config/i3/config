@@ -25,16 +25,20 @@ set $mod Mod1
 for_window [class="^.*"] border pixel 3
 new_window 1pixel
 
-# reloading/restaring i3
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-
 ###############################################################
 ##                          windows                          ##
 ###############################################################
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # change focus
 bindsym $mod+Left focus left
@@ -48,42 +52,18 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# drag floating windows
 floating_modifier $mod
-
-# change focus between tiling / floating windows
+bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# class                 border  backgr.  text  indicator  child_border
-client.focused_inactive $accent1 $bg $bg $bg $bg
-client.unfocused        $bg $bg $bg $bg $bg
-client.focused          $accent1 $bg $bg $accent1 $accent1
+# class                 border    backgr.  text  indicator  child_border
+client.focused_inactive $accent1  $bg      $bg   $bg        $bg
+client.unfocused        $bg       $bg      $bg   $bg        $bg
+client.focused          $accent1  $bg      $bg   $accent1   $accent1
 
 ###############################################################
-##                        workspaces                         ##
+##                        Workspaces                         ##
 ###############################################################
 
 set $ws1 "1"
@@ -135,27 +115,22 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ###############################################################
-##                      bind programs                        ##
+##                      Bind Programs                        ##
 ###############################################################
 
-# open terminal
+# terminal
 bindsym $mod+Return exec --no-startup-id urxvt
 
-# open rofi
+# rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/config.rasi
 
 ###############################################################
-##                         startup                           ##
+##                         Startup                           ##
 ###############################################################
 
 exec_always --no-startup-id ~/.bin/displayToDefault
-
-# polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id redshift
-
-# start xss-lock
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
