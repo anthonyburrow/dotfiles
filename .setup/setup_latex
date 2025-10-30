@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+echo "[*] Installing LaTeX packages..."
+
+sudo pacman -S --needed --noconfirm \
+    texlive-core \
+    texlive-latexextra \
+    texlive-bibtexextra \
+
+echo "Done."
