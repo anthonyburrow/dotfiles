@@ -62,7 +62,10 @@ cat ~/.ssh/id_ed25519.pub
 .setup/setup_programs
 .setup/setup_latex
 .setup/setup_udiskie
-.setup/dev
+.setup/setup_dev
+
+# If GPU:
+.setup/setup_nvidia
 
 
 ##################

@@ -3,14 +3,25 @@
 HOST=$(cat /etc/hostname)
 
 case "$HOST" in
-    # Desktop 
     ragnarok)
-        xrandr --output DP-1 --mode 2560x1440 --rate 144 --primary \
-               --output DP-2 --mode 2560x1440 --rate 144 --right-of DP-1
-        ;;
-    # Laptop
-    masamune)
-        ;;
-    *)
+        # Get GPU vendor
+        GPU=$(lspci | grep VGA | head -n1 | awk '{print $5}')
+
+        # Get connected DP outputs
+        mapfile -t dps < <(xrandr | grep "DP-[0-9]\+ connected" | awk '{print $1}')
+
+        if [ "${#dps[@]}" -ge 2 ]; then
+            if [[ "$GPU" == "NVIDIA" ]]; then
+                # NVIDIA: second monitor is left of first
+                xrandr --output "${dps[0]}" --mode 2560x1440 --rate 144 --primary \
+                       --output "${dps[1]}" --mode 2560x1440 --rate 144 --left-of "${dps[0]}"
+            else
+                # Default layout (non-NVIDIA)
+                xrandr --output "${dps[0]}" --mode 2560x1440 --rate 144 --primary \
+                       --output "${dps[1]}" --mode 2560x1440 --rate 144 --right-of "${dps[0]}"
+            fi
+        elif [ "${#dps[@]}" -eq 1 ]; then
+            xrandr --output "${dps[0]}" --mode 2560x1440 --rate 144 --primary
+        fi
         ;;
 esac
