@@ -17,7 +17,7 @@ cleanup() {
 }
 
 ssh -t -L ${LOCAL_PORT}:localhost:${REMOTE_PORT} ${REMOTE_ADDRESS} \
-  "jupyter_dev lab --no-browser --port=${REMOTE_PORT} --NotebookApp.token='' --NotebookApp.password=''" 2>/dev/null &
+  "bash -lc 'jupyter_dev lab --no-browser --port=${REMOTE_PORT} --NotebookApp.token=\"\" --NotebookApp.password=\"\"'" &
 SSH_PID=$!
 
 sleep 5
