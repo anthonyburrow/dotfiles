@@ -29,6 +29,7 @@ sudo pacman -S --needed --noconfirm \
     make \
     cmake \
     which \
+    openssh \
 
 yay -S --needed --noconfirm \
     polybar \
