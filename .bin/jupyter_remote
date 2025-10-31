@@ -15,8 +15,9 @@ cleanup() {
     
     exit 0
 }
+trap cleanup INT TERM
 
-ssh -t -L ${LOCAL_PORT}:localhost:${REMOTE_PORT} ${REMOTE_ADDRESS} \
+ssh -tt -L ${LOCAL_PORT}:localhost:${REMOTE_PORT} ${REMOTE_ADDRESS} \
   "bash -lc 'jupyter_dev lab --no-browser --port=${REMOTE_PORT} --NotebookApp.token=\"\" --NotebookApp.password=\"\"'" &
 SSH_PID=$!
 
