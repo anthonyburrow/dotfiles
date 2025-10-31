@@ -1,6 +1,3 @@
-# bind 'set bell-style none'
-xset b off
-
 # Fix for urxvt
 clear
 
@@ -14,8 +11,10 @@ DEV_DIR="$HOME/dev"
 VENV_BIN_DIR="$DEV_DIR/.venv/bin"
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias jupyter_dev="$VENV_BIN_DIR/jupyter"
 alias pip_dev="$VENV_BIN_DIR/pip"
+jupyter_dev() {
+    "$HOME/dev/.venv/bin/jupyter" "$@"
+}
 
 eval "$(dircolors -b ~/.config/dircolors)"
 alias ls='ls --color=auto'
