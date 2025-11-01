@@ -1,6 +1,10 @@
 # Fix for urxvt
 clear
 
+if [ -f "$HOME/.secret/env.sh" ]; then
+    source "$HOME/.secret/env.sh"
+fi
+
 export PATH="$HOME/.bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 

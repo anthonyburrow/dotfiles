@@ -30,6 +30,7 @@ sudo pacman -S --needed --noconfirm \
     cmake \
     which \
     openssh \
+    rsync \
 
 yay -S --needed --noconfirm \
     polybar \
