@@ -9,6 +9,7 @@ sudo pacman -S --needed --noconfirm \
     xorg-xinit \
     xorg-xrandr \
     rxvt-unicode \
+    ranger \
     feh \
     rofi \
     nerd-fonts \
