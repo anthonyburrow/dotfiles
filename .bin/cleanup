@@ -25,6 +25,10 @@ echo "--- Cleaning pacman cache ---"
 sudo pacman -Sc --noconfirm
 
 echo
+echo "--- Removing yay orphans ---"
+yay -Yc --noconfirm
+
+echo
 echo "--- Cleaning package cache from yay/AUR ---"
 if command -v yay &>/dev/null; then
     yay -Sc --noconfirm
@@ -40,9 +44,9 @@ sudo rm -rf /tmp/*
 sudo rm -rf ~/.cache/*
 sudo rm -rf ~/.local/share/Trash/*
 
-echo
-echo "--- Checking for broken symlinks ---"
-find "$HOME" -xtype l -print -delete || true
+# echo
+# echo "--- Checking for broken symlinks ---"
+# find "$HOME" -xtype l -print -delete || true
 
 echo
 echo "Cleaning complete."
