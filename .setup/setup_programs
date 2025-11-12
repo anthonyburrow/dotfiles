@@ -23,6 +23,7 @@ sudo pacman -S --needed --noconfirm \
     libsecret \
     scrot \
     redshift \
+    keepassxc \
     vim \
     zip \
     unzip \
