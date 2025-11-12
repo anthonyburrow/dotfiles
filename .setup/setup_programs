@@ -11,6 +11,7 @@ sudo pacman -S --needed --noconfirm \
     rxvt-unicode \
     ranger \
     w3m \
+    fastfetch \
     feh \
     rofi \
     nerd-fonts \
