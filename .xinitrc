@@ -11,6 +11,7 @@ if [ -f ~/.config/colors ]; then
 fi
 
 $HOME/.config/gen_Xresources
+$HOME/.config/fastfetch/gen_config
 
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources

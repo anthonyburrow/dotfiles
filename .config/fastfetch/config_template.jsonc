@@ -1,0 +1,72 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "modules": [
+    {
+      "type": "title",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "os",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "kernel",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "break"
+    },
+    {
+      "type": "host",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "cpu",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "gpu",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "display",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "memory",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "disk",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "uptime",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "break"
+    },
+    {
+      "type": "wm",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "terminal",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "shell",
+      "keyColor": "$COLOR_ACCENT0"
+    },
+    {
+      "type": "break"
+    },
+    {
+      "type": "colors"
+    }
+  ]
+}
