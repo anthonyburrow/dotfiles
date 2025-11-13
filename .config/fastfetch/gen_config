@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
+template_file="$HOME/.config/fastfetch/config_template.jsonc"
+output_file="$HOME/.config/fastfetch/config.jsonc"
+
 source ~/.config/colors
 
-envsubst < ~/.config/fastfetch/config_template.jsonc > ~/.config/fastfetch/config.jsonc
+envsubst < "$template_file" > "$output_file"

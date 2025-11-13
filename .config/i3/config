@@ -128,7 +128,6 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/config
 ##                         Startup                           ##
 ###############################################################
 
-exec_always --no-startup-id ~/.bin/displayToDefault
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id nm-applet

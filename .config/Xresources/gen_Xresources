@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+colors_file="$HOME/.config/colors"
+template_file="$HOME/.config/Xresources/Xresources_template"
+output_file="$HOME/.Xresources"
+
+source ~/.config/colors
+
+envsubst < "$template_file" > "$output_file"

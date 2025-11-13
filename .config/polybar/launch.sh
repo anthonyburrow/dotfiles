@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
-# Terminate already running bar instances
 killall -q polybar
 
-source ~/.config/colors
-
-# Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 monitors=($(polybar --list-monitors | cut -d: -f1))
