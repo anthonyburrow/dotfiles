@@ -1,0 +1,38 @@
+[window]
+padding.x = 10
+padding.y = 10
+
+[font]
+normal = { family = "Fira Code Retina", style = "Regular" }
+size = 12.0
+
+[colors.primary]
+background = "$COLOR_BACKGROUND"
+foreground = "$COLOR_FOREGROUND"
+
+[colors.cursor]
+text    = "$COLOR_FOREGROUND"
+cursor  = "$COLOR_ACCENT0"
+
+[colors.normal]
+black   = "$COLOR_ACCENT0"
+red     = "$COLOR_ACCENT1"
+green   = "$COLOR_ACCENT2"
+yellow  = "$COLOR_ACCENT3"
+blue    = "$COLOR_ACCENT4"
+magenta = "$COLOR_ACCENT5"
+cyan    = "$COLOR_ACCENT6"
+white   = "$COLOR_ACCENT7"
+
+[colors.bright]
+black   = "$COLOR_ACCENT8"
+red     = "$COLOR_ACCENT9"
+green   = "$COLOR_ACCENT10"
+yellow  = "$COLOR_ACCENT11"
+blue    = "$COLOR_ACCENT12"
+magenta = "$COLOR_ACCENT13"
+cyan    = "$COLOR_ACCENT14"
+white   = "$COLOR_ACCENT15"
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }

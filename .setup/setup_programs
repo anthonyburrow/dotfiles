@@ -8,7 +8,7 @@ sudo pacman -S --needed --noconfirm \
     xorg-server \
     xorg-xinit \
     xorg-xrandr \
-    rxvt-unicode \
+    alacritty \
     ranger \
     w3m \
     fastfetch \

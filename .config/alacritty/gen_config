@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+template_file="$HOME/.config/alacritty/alacritty_template.toml"
+output_file="$HOME/.config/alacritty/alacritty.toml"
+
+source ~/.config/colors
+
+envsubst < "$template_file" > "$output_file"

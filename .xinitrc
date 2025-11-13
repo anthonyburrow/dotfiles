@@ -9,8 +9,9 @@ if [ -f $colors_file ]; then
     set +a
 fi
 
-$HOME/.config/Xresources/gen_Xresources
+# $HOME/.config/Xresources/gen_Xresources
 $HOME/.config/fastfetch/gen_config
+$HOME/.config/alacritty/gen_config
 
 if [ -f "$resources_file" ]; then
     xrdb -merge "$resources_file"
