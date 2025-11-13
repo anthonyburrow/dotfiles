@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
+source ~/.config/colors
+
 envsubst < ~/.config/fastfetch/config_template.jsonc > ~/.config/fastfetch/config.jsonc

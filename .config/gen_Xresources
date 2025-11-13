@@ -45,6 +45,12 @@ translate_key() {
         COLOR_ACCENT7)    echo "color7" ;;
         COLOR_ACCENT8)    echo "color8" ;;
         COLOR_ACCENT9)    echo "color9" ;;
+        COLOR_ACCENT10)   echo "color10" ;;
+        COLOR_ACCENT11)   echo "color11" ;;
+        COLOR_ACCENT12)   echo "color12" ;;
+        COLOR_ACCENT13)   echo "color13" ;;
+        COLOR_ACCENT14)   echo "color14" ;;
+        COLOR_ACCENT15)   echo "color15" ;;
         *) echo "$1" ;;
     esac
 }

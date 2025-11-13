@@ -1,66 +1,77 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "arch",
+    "color": {
+        "1": "$COLOR_ACCENT8",
+        "2": "$COLOR_ACCENT8"
+    }
+  },
   "modules": [
     {
       "type": "title",
-      "keyColor": "$COLOR_ACCENT0"
+      "color": {
+        "user": "$COLOR_ACCENT8",
+        "at": "$COLOR_FOREGROUND",
+        "host": "$COLOR_ACCENT1"
+      }
     },
     {
       "type": "separator"
     },
     {
       "type": "os",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "kernel",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "break"
     },
     {
       "type": "host",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "cpu",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "gpu",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "display",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "memory",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "disk",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "uptime",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "break"
     },
     {
       "type": "wm",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "terminal",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "shell",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT8"
     },
     {
       "type": "break"

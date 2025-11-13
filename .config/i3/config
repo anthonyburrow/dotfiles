@@ -12,7 +12,7 @@ gaps outer 0
 # colors
 set_from_resource $bg background
 set_from_resource $fg foreground
-set_from_resource $accent1 color0
+set_from_resource $accent1 color8
 
 ###############################################################
 ##                          settings                         ##
