@@ -21,10 +21,9 @@ eval "$(dircolors -b ~/.config/dircolors)"
 alias ls='ls --color=auto'
 
 RESET="\[\e[0m\]"
-USERCOLOR="\[\033[0;30m\]"
-HOSTCOLOR="\[\033[0;31m\]"
 DIRCOLOR="\[\033[0;91m\]"
-PS1="${USERCOLOR}\u${RESET}@${HOSTCOLOR}\h ${DIRCOLOR}\w ${RESET}\$ "
+ARROWCOLOR="\[\033[0;91m\]"
+PS1="${DIRCOLOR}\w ${ARROWCOLOR}❯${RESET} "
 
 python() {
     local dir="$PWD"
