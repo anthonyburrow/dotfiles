@@ -122,7 +122,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Return exec --no-startup-id alacritty
 
 # rofi
-bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/config.rasi
+bindsym $mod+d exec --no-startup-id rofi -terminal alacritty -show drun -theme ~/.config/rofi/config.rasi
 
 ###############################################################
 ##                         Startup                           ##
