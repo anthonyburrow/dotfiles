@@ -1,6 +1,3 @@
-# Fix for urxvt
-clear
-
 if [ -f "$HOME/.secret/env.sh" ]; then
     source "$HOME/.secret/env.sh"
 fi
@@ -42,7 +39,7 @@ python() {
         dir=$(dirname "$dir")
     done
 
-    # Fallback to your preferred .venv
+    # Fallback to preferred .venv
     if [ -x "$fallback" ]; then
         "$fallback" "$@"
         return $?
