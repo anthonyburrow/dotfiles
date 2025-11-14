@@ -69,11 +69,6 @@
       "keyColor": "$COLOR_ACCENT5"
     },
     {
-      "type": "terminalfont",
-      "key": "Font    ",
-      "keyColor": "$COLOR_ACCENT5"
-    },
-    {
       "type": "break"
     },
     {
