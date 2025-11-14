@@ -1,5 +1,8 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "display": {
+    "separator": " | "
+  },
   "logo": {
     "source": "arch",
     "color": {
@@ -17,61 +20,58 @@
       }
     },
     {
-      "type": "separator"
+      "type": "break"
     },
     {
       "type": "os",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "OS      ",
+      "keyColor": "$COLOR_ACCENT9"
     },
     {
       "type": "kernel",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "Kernel  ",
+      "keyColor": "$COLOR_ACCENT9"
     },
     {
       "type": "break"
     },
     {
-      "type": "host",
-      "keyColor": "$COLOR_ACCENT8"
-    },
-    {
       "type": "cpu",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "CPU     ",
+      "keyColor": "$COLOR_ACCENT0"
     },
     {
       "type": "gpu",
-      "keyColor": "$COLOR_ACCENT8"
-    },
-    {
-      "type": "display",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "GPU     ",
+      "keyColor": "$COLOR_ACCENT0"
     },
     {
       "type": "memory",
-      "keyColor": "$COLOR_ACCENT8"
-    },
-    {
-      "type": "disk",
-      "keyColor": "$COLOR_ACCENT8"
-    },
-    {
-      "type": "uptime",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "Memory  ",
+      "keyColor": "$COLOR_ACCENT0"
     },
     {
       "type": "break"
     },
     {
       "type": "wm",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "WM      ",
+      "keyColor": "$COLOR_ACCENT5"
     },
     {
       "type": "terminal",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "Terminal",
+      "keyColor": "$COLOR_ACCENT5"
     },
     {
       "type": "shell",
-      "keyColor": "$COLOR_ACCENT8"
+      "key": "Shell   ",
+      "keyColor": "$COLOR_ACCENT5"
+    },
+    {
+      "type": "terminalfont",
+      "key": "Font    ",
+      "keyColor": "$COLOR_ACCENT5"
     },
     {
       "type": "break"
