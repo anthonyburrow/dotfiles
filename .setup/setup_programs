@@ -27,7 +27,7 @@ sudo pacman -S --needed --noconfirm \
     scrot \
     redshift \
     keepassxc \
-    vim \
+    neovim \
     zip \
     unzip \
     gcc \
