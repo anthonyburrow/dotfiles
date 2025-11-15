@@ -1,10 +1,6 @@
 from ranger.gui.colorscheme import ColorScheme
 from ranger.gui.color import (
-    Color,
     default,
-    black,
-    magenta,
-    bright_red,
     normal,
 )
 
@@ -15,10 +11,9 @@ class EnvTheme(ColorScheme):
         fg = default
         bg = default
 
-        dir_color = bright_red
-        exe_color = black
-        link_color = magenta
-        select_color = black
+        dir_color = 9
+        exe_color = 0
+        link_color = 5
 
         attr = normal
 
@@ -30,7 +25,7 @@ class EnvTheme(ColorScheme):
             fg = link_color
 
         if context.selected:
-            fg = Color.number(1)
-            bg = select_color
+            bg = fg if fg != default else 8
+            fg = 232
 
         return fg, bg, attr
