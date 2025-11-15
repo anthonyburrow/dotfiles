@@ -133,3 +133,4 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id redshift
+exec --no-startup-id numlockx on

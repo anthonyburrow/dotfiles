@@ -23,6 +23,7 @@ sudo pacman -S --needed --noconfirm \
     discord \
     gnome-keyring \
     libsecret \
+    numlockx \
     scrot \
     redshift \
     keepassxc \
