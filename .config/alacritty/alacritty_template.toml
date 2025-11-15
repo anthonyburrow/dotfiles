@@ -15,7 +15,7 @@ foreground = "$COLOR_FOREGROUND"
 
 [colors.cursor]
 text    = "$COLOR_FOREGROUND"
-cursor  = "$COLOR_ACCENT0"
+cursor  = "$COLOR_ACCENT11"
 
 [colors.normal]
 black   = "$COLOR_ACCENT0"

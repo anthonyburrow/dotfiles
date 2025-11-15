@@ -6,17 +6,17 @@
   "logo": {
     "source": "arch",
     "color": {
-        "1": "$COLOR_ACCENT8",
-        "2": "$COLOR_ACCENT8"
+        "1": "$COLOR_ACCENT11",
+        "2": "$COLOR_ACCENT11"
     }
   },
   "modules": [
     {
       "type": "title",
       "color": {
-        "user": "$COLOR_ACCENT8",
+        "user": "$COLOR_ACCENT11",
         "at": "$COLOR_FOREGROUND",
-        "host": "$COLOR_ACCENT1"
+        "host": "$COLOR_ACCENT3"
       }
     },
     {
@@ -25,12 +25,12 @@
     {
       "type": "os",
       "key": "OS      ",
-      "keyColor": "$COLOR_ACCENT9"
+      "keyColor": "$COLOR_ACCENT12"
     },
     {
       "type": "kernel",
       "key": "Kernel  ",
-      "keyColor": "$COLOR_ACCENT9"
+      "keyColor": "$COLOR_ACCENT12"
     },
     {
       "type": "break"
@@ -38,17 +38,23 @@
     {
       "type": "cpu",
       "key": "CPU     ",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT13"
     },
     {
       "type": "gpu",
       "key": "GPU     ",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT13",
+      "format": "{vendor} {name}"
     },
     {
       "type": "memory",
       "key": "Memory  ",
-      "keyColor": "$COLOR_ACCENT0"
+      "keyColor": "$COLOR_ACCENT13",
+      "format": "{used} / {total}",
+      "percent": {
+        "green": 13,
+        "yellow": 13
+      }
     },
     {
       "type": "break"
@@ -56,17 +62,17 @@
     {
       "type": "wm",
       "key": "WM      ",
-      "keyColor": "$COLOR_ACCENT5"
+      "keyColor": "$COLOR_ACCENT14"
     },
     {
       "type": "terminal",
       "key": "Terminal",
-      "keyColor": "$COLOR_ACCENT5"
+      "keyColor": "$COLOR_ACCENT14"
     },
     {
       "type": "shell",
       "key": "Shell   ",
-      "keyColor": "$COLOR_ACCENT5"
+      "keyColor": "$COLOR_ACCENT14"
     },
     {
       "type": "break"
