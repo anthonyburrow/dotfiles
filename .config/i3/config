@@ -1,9 +1,8 @@
-###############################################################
-##                         appearance                        ##
-###############################################################
+set $mod Mod1
 
-# wallpaper
-exec --no-startup-id feh --bg-fill ~/.config/wallpapers/stars.png
+###############################################################
+##                         Appearance                        ##
+###############################################################
 
 # gaps
 gaps inner 20
@@ -14,53 +13,41 @@ set_from_resource $bg background
 set_from_resource $fg foreground
 set_from_resource $accent1 color8
 
-###############################################################
-##                          settings                         ##
-###############################################################
-
-# mod key
-set $mod Mod1
+# class                 border    backgr.  text  indicator  child_border
+client.focused_inactive $accent1  $bg      $bg   $bg        $bg
+client.unfocused        $bg       $bg      $bg   $bg        $bg
+client.focused          $accent1  $bg      $bg   $accent1   $accent1
 
 # hide title bar
 for_window [class="^.*"] border pixel 3
 new_window 1pixel
 
+
 ###############################################################
-##                          windows                          ##
+##                          Windows                          ##
 ###############################################################
 
-# kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
-# change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# toggle tiling / floating
 floating_modifier $mod
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
-# class                 border    backgr.  text  indicator  child_border
-client.focused_inactive $accent1  $bg      $bg   $bg        $bg
-client.unfocused        $bg       $bg      $bg   $bg        $bg
-client.focused          $accent1  $bg      $bg   $accent1   $accent1
 
 ###############################################################
 ##                        Workspaces                         ##
@@ -99,38 +86,29 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# resize windows
-mode "resize" {
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Left resize shrink width 10 px or 10 ppt
-
-        # exit resize mode
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
 
 ###############################################################
 ##                      Bind Programs                        ##
 ###############################################################
 
-# terminal
 bindsym $mod+Return exec --no-startup-id alacritty
 
-# rofi
 bindsym $mod+d exec --no-startup-id rofi -terminal alacritty -show drun -theme ~/.config/rofi/config.rasi
 
+
 ###############################################################
-##                         Startup                           ##
+##                       On Startup                          ##
 ###############################################################
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
+exec --no-startup-id feh --bg-fill ~/.config/wallpapers/stars.png
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id redshift
 exec --no-startup-id numlockx on
+
+
+###############################################################
+##                       On Restart                          ##
+###############################################################
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
