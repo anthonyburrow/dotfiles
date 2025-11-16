@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+echo "[*] Installing sddm..."
+
+sudo pacman -S --needed --noconfirm \
+    sddm \
+
+echo "[*] Setting up sddm..."
+
+sudo systemctl enable sddm
+$HOME/.config/sddm/install
+
+echo "Done."

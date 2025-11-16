@@ -1,0 +1,14 @@
+#!/bin/sh
+
+colors_file=$HOME/.config/colors
+if [ -f $colors_file ]; then
+    set -a
+    source $colors_file
+    set +a
+fi
+
+$HOME/.config/fastfetch/gen_config
+$HOME/.config/alacritty/gen_config
+$HOME/.config/Xresources/gen_Xresources
+
+$HOME/.bin/displayToDefault

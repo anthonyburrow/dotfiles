@@ -1,0 +1,6 @@
+[SddmGreeterTheme]
+Name=minimal
+Description=Minimal SDDM theme
+Author=Anthony Burrow
+Theme-Id=minimal
+Theme-API=2.0

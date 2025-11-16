@@ -1,0 +1,15 @@
+#!/bin/bash
+
+THEME_NAME="minimal"
+DOTFILES_DIR="$HOME/.config/sddm/$THEME_NAME"
+TARGET_DIR="/usr/share/sddm/themes/$THEME_NAME"
+
+sudo rm -rf "$TARGET_DIR"
+sudo cp -r "$DOTFILES_DIR" "$TARGET_DIR"
+
+sudo tee /etc/sddm.conf > /dev/null <<EOF
+[Theme]
+Current=$THEME_NAME
+EOF
+
+echo "SDDM theme installed. Reboot to see changes."
