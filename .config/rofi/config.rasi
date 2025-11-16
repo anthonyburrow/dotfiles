@@ -5,7 +5,7 @@
     bg1:     ${COLOR_BACKGROUND};
     fg0:     ${COLOR_FOREGROUND};
 
-    accent-color:     ${COLOR_ACCENT0};
+    accent-color:     ${COLOR_ACCENT11};
     urgent-color:     #EBCB8B;
 
     background-color:   transparent;
