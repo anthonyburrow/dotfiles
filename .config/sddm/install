@@ -8,6 +8,9 @@ sudo rm -rf "$TARGET_DIR"
 sudo cp -r "$DOTFILES_DIR" "$TARGET_DIR"
 
 sudo tee /etc/sddm.conf > /dev/null <<EOF
+[X11]
+DisplayCommand=$HOME/.bin/displayToDefault
+
 [Theme]
 Current=$THEME_NAME
 EOF

@@ -10,5 +10,3 @@ fi
 $HOME/.config/fastfetch/gen_config
 $HOME/.config/alacritty/gen_config
 $HOME/.config/Xresources/gen_Xresources
-
-$HOME/.bin/displayToDefault
