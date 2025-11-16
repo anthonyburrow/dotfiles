@@ -2,5 +2,7 @@
 Name=minimal
 Description=Minimal SDDM theme
 Author=Anthony Burrow
+ConfigFile=theme.conf
 Theme-Id=minimal
 Theme-API=2.0
+QtVersion=6

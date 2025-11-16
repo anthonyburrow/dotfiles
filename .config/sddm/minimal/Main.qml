@@ -7,6 +7,12 @@ Rectangle {
     height: 480
     color: "#1e1e1e"
 
+    Image {
+        anchors.fill: parent
+        source: config.background
+        fillMode: Image.PreserveAspectCrop
+    }
+
     TextConstants { id: textConstants }
 
     Column {
@@ -96,6 +102,8 @@ Rectangle {
     }
 
     Component.onCompleted: {
+        console.log("Theme loaded successfully")
+        console.log("Config object:", JSON.stringify(config))
         if (usernameField.text === "") {
             usernameField.focus = true
         } else {

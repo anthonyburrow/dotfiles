@@ -9,6 +9,7 @@ sudo pacman -S --needed --noconfirm \
 echo "[*] Setting up sddm..."
 
 sudo systemctl enable sddm
+
 $HOME/.config/sddm/install
 
 echo "Done."

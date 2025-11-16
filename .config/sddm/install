@@ -5,7 +5,19 @@ DOTFILES_DIR="$HOME/.config/sddm/$THEME_NAME"
 TARGET_DIR="/usr/share/sddm/themes/$THEME_NAME"
 
 sudo rm -rf "$TARGET_DIR"
-sudo cp -r "$DOTFILES_DIR" "$TARGET_DIR"
+sudo mkdir -p "$TARGET_DIR"
+
+# Local for test-mode
+cp $HOME/.config/wallpapers/stars.png $HOME/.config/sddm/minimal/background.png
+
+envsubst < "$DOTFILES_DIR/theme.conf.template" > "$DOTFILES_DIR/theme.conf"
+
+# Migrate to /usr/share/sddm/themes
+for file in "$DOTFILES_DIR"/*; do
+    if [ -f "$file" ] && [[ "$file" != *.template ]]; then
+        sudo cp "$file" "$TARGET_DIR/"
+    fi
+done
 
 sudo tee /etc/sddm.conf > /dev/null <<EOF
 [X11]
