@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sddm-greeter-qt6 --test-mode --theme ~/.config/sddm/minimal
