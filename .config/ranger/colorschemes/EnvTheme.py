@@ -17,11 +17,12 @@ class EnvTheme(ColorScheme):
 
         attr = normal
 
+
         if context.directory:
             fg = dir_color
         elif context.executable:
             fg = exe_color
-        elif context.link:
+        if context.link:
             fg = link_color
 
         if context.selected:

@@ -16,7 +16,7 @@
       "color": {
         "user": "$COLOR_ACCENT11",
         "at": "$COLOR_FOREGROUND",
-        "host": "$COLOR_ACCENT3"
+        "host": "$COLOR_ACCENT8"
       }
     },
     {

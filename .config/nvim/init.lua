@@ -84,22 +84,22 @@ vim.cmd([[
   highlight NonText ctermfg=0 ctermbg=NONE
   
   " Line numbers
-  highlight LineNr ctermfg=8 ctermbg=NONE
-  highlight CursorLineNr ctermfg=8 ctermbg=NONE cterm=bold
+  highlight LineNr ctermfg=11 ctermbg=NONE
+  highlight CursorLineNr ctermfg=11 ctermbg=NONE cterm=bold
   
   " Cursor line
   highlight CursorLine ctermbg=0 cterm=NONE
   
   " Status line
-  highlight StatusLine ctermfg=0 ctermbg=NONE cterm=NONE
-  highlight StatusLineNC ctermfg=0 ctermbg=NONE cterm=NONE
+  highlight StatusLine ctermfg=11 ctermbg=NONE cterm=NONE
+  highlight StatusLineNC ctermfg=11 ctermbg=NONE cterm=NONE
   
   " Vertical split
   highlight VertSplit ctermfg=0 ctermbg=NONE cterm=NONE
   
   " Popup menu (autocomplete)
-  highlight Pmenu ctermfg=0 ctermbg=0
-  highlight PmenuSel ctermfg=0 ctermbg=4
+  highlight Pmenu ctermfg=11 ctermbg=NONE
+  highlight PmenuSel ctermfg=7 ctermbg=11
   
   " Search
   highlight Search ctermfg=0 ctermbg=3
@@ -108,20 +108,36 @@ vim.cmd([[
   " Visual selection
   highlight Visual ctermfg=NONE ctermbg=8
 
-  highlight EndOfBuffer ctermfg=0 ctermbg=NONE
+  highlight EndOfBuffer ctermfg=7 ctermbg=NONE
+
+  " Command line and messages
+  highlight MsgArea ctermfg=6 ctermbg=NONE
+  highlight MsgSeparator ctermfg=8 ctermbg=NONE
+  
+  " When typing commands
+  highlight NormalFloat ctermfg=6 ctermbg=0
+  highlight FloatBorder ctermfg=6 ctermbg=0
+  
+  " Error/warning messages
+  highlight ErrorMsg ctermfg=0 ctermbg=NONE
+  highlight WarningMsg ctermfg=0 ctermbg=NONE
+  highlight MoreMsg ctermfg=0 ctermbg=NONE
+  highlight Question ctermfg=0 ctermbg=NONE
+
+  highlight ModeMsg ctermfg=6 ctermbg=NONE cterm=bold
 
   " Lazy.nvim UI
   highlight LazyNormal ctermfg=NONE ctermbg=NONE
-  highlight LazyButton ctermfg=1 ctermbg=0
-  highlight LazyButtonActive ctermfg=1 ctermbg=8
-  highlight LazyH1 ctermfg=3 ctermbg=NONE cterm=bold
-  highlight LazyH2 ctermfg=4 ctermbg=NONE cterm=bold
-  highlight LazyComment ctermfg=8 ctermbg=NONE
+  highlight LazyButton ctermfg=7 ctermbg=11
+  highlight LazyButtonActive ctermfg=7 ctermbg=10
+  highlight LazyH1 ctermfg=11 ctermbg=NONE cterm=bold
+  highlight LazyH2 ctermfg=11 ctermbg=NONE cterm=bold
+  highlight LazyComment ctermfg=11 ctermbg=NONE
   highlight LazyProgressDone ctermfg=2 ctermbg=NONE
-  highlight LazyProgressTodo ctermfg=8 ctermbg=NONE
-  highlight LazySpecial ctermfg=5 ctermbg=NONE
-  highlight LazyProp ctermfg=6 ctermbg=NONE
+  highlight LazyProgressTodo ctermfg=11 ctermbg=NONE
+  highlight LazySpecial ctermfg=11 ctermbg=NONE
+  highlight LazyProp ctermfg=11 ctermbg=NONE
   highlight LazyValue ctermfg=7 ctermbg=NONE
-  highlight LazyDir ctermfg=4 ctermbg=NONE
-  highlight LazyUrl ctermfg=4 ctermbg=NONE cterm=underline
+  highlight LazyDir ctermfg=11 ctermbg=NONE
+  highlight LazyUrl ctermfg=11 ctermbg=NONE cterm=underline
 ]])

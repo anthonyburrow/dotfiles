@@ -16,9 +16,9 @@ fi
 $HOME/.config/fastfetch/gen_config
 $HOME/.config/alacritty/gen_config
 
-# $HOME/.config/Xresources/gen_Xresources
-# if [ -f "$resources_file" ]; then
-#     xrdb -merge "$resources_file"
-# fi
+$HOME/.config/Xresources/gen_Xresources
+if [ -f "$resources_file" ]; then
+    xrdb -merge "$resources_file"
+fi
 
 $HOME/.config/polybar/launch.sh > /dev/null 2>&1 &

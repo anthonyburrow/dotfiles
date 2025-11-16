@@ -11,7 +11,7 @@ gaps outer 0
 # colors
 set_from_resource $bg background
 set_from_resource $fg foreground
-set_from_resource $accent1 color8
+set_from_resource $accent1 color11
 
 # class                 border    backgr.  text  indicator  child_border
 client.focused_inactive $accent1  $bg      $bg   $bg        $bg
