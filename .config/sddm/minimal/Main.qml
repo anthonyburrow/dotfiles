@@ -21,7 +21,8 @@ Rectangle {
 
         Text {
             text: "Login"
-            color: "#ffffff"
+            color: config.colorForeground
+            font.family: "Noto Mono"
             font.pixelSize: 32
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -31,11 +32,16 @@ Rectangle {
             width: 300
             placeholderText: "Username"
             text: userModel.lastUser
+            font.family: "Noto Mono"
             font.pixelSize: 14
-            color: "#ffffff"
+            color: config.colorBackground
+            palette {
+                text: config.colorBackground
+                placeholderText: config.colorBackground
+            }
             background: Rectangle {
-                color: "#2e2e2e"
-                border.color: "#4e4e4e"
+                color: config.colorForeground
+                border.color: config.colorForeground
                 radius: 4
             }
             Keys.onPressed: (event) => {
@@ -50,38 +56,23 @@ Rectangle {
             width: 300
             placeholderText: "Password"
             echoMode: TextInput.Password
+            passwordCharacter: "•"
+            font.family: "Noto Mono"
             font.pixelSize: 14
-            color: "#ffffff"
+            color: config.colorBackground
+            palette {
+                text: config.colorBackground
+                placeholderText: config.colorBackground
+            }
             background: Rectangle {
-                color: "#2e2e2e"
-                border.color: "#4e4e4e"
+                color: config.colorForeground
+                border.color: config.colorForeground
                 radius: 4
             }
             Keys.onPressed: (event) => {
                 if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                     login()
                 }
-            }
-        }
-
-        Rectangle {
-            width: 300
-            height: 40
-            color: loginMouseArea.pressed ? "#4e4e4e" : "#3e3e3e"
-            border.color: "#5e5e5e"
-            radius: 4
-            
-            Text {
-                text: "Login"
-                color: "#ffffff"
-                anchors.centerIn: parent
-                font.pixelSize: 14
-            }
-            
-            MouseArea {
-                id: loginMouseArea
-                anchors.fill: parent
-                onClicked: login()
             }
         }
 
