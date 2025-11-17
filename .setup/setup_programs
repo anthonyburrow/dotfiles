@@ -8,6 +8,7 @@ sudo pacman -S --needed --noconfirm \
     xorg-server \
     xorg-xinit \
     xorg-xrandr \
+    xorg-xinput \
     alacritty \
     ranger \
     w3m \
