@@ -1,5 +1,8 @@
 #!/bin/sh
 
+xset b off
+xset m 4/1 5
+
 colors_file=$HOME/.config/colors
 if [ -f $colors_file ]; then
     set -a
