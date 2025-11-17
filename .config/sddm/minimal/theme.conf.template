@@ -1,0 +1,5 @@
+[General]
+background=background.png
+
+colorBackground=$COLOR_BACKGROUND
+colorForeground=$COLOR_FOREGROUND
