@@ -19,6 +19,7 @@ sudo pacman -S --needed --noconfirm \
     ttf-fira-code \
     pulseaudio \
     pulsemixer \
+    spotify-launcher \
     firefox \
     discord \
     gnome-keyring \
