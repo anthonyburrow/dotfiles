@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source ~/.bashrc
+
+case "${1##*.}" in
+    py)
+        python "$1"
+        ;;
+    tex)
+        cd "$(dirname "$1")"
+        latexmk -pdf -interaction=nonstopmode -synctex=1 -f "$(basename "$1")"
+        ;;
+    *)
+        echo "No build command defined for .$extension files"
+        exit 1
+        ;;
+esac
