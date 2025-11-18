@@ -1,19 +1,19 @@
 {
 	"folders": [
 		{
-			"path": "../../../.bin"
+			"path": "~/.bin"
 		},
 		{
-			"path": "../.."
+			"path": "~/.config"
 		},
 		{
-			"path": "../../../.info"
+			"path": "~/.info"
 		},
 		{
-			"path": "../../../.secret"
+			"path": "~/.secret"
 		},
 		{
-			"path": "../../../.setup"
+			"path": "~/.setup"
 		}
 	]
 }
