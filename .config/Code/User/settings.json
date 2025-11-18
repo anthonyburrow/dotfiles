@@ -1,0 +1,32 @@
+{
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "editor.fontFamily": "'Fira Code Retina', monospace",
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 1,
+
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.log",
+        "*.out",
+        "*.toc",
+        "*.synctex.gz"
+    ],
+    "explorer.confirmDelete": false,
+    "extensions.ignoreRecommendations": true,
+    "workbench.startupEditor": "none",
+    "editor.rulers": [
+        79,
+    ],
+    "explorer.autoReveal": false,
+    "window.confirmSaveUntitledWorkspace": false,
+    "security.workspace.trust.untrustedFiles": "open",
+}
