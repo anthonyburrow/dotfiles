@@ -8,7 +8,8 @@ case "${1##*.}" in
         ;;
     tex)
         cd "$(dirname "$1")"
-        latexmk -pdf -interaction=nonstopmode -synctex=1 -f "$(basename "$1")"
+        latexmk -pdf -interaction=nonstopmode -f "$(basename "$1")"
+        latexmk -c "$(basename "$1")"
         ;;
     *)
         echo "No build command defined for .$extension files"
