@@ -29,4 +29,5 @@
     "explorer.autoReveal": false,
     "window.confirmSaveUntitledWorkspace": false,
     "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "/bin/python",
 }
