@@ -30,4 +30,6 @@
     "window.confirmSaveUntitledWorkspace": false,
     "security.workspace.trust.untrustedFiles": "open",
     "python.defaultInterpreterPath": "/bin/python",
+    "git.confirmSync": false,
+    "python.analysis.typeCheckingMode": "basic",
 }

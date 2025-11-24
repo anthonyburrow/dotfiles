@@ -4,7 +4,7 @@ source ~/.bashrc
 
 case "${1##*.}" in
     py)
-        python "$1"
+        .venv/bin/python "$1"
         ;;
     tex)
         cd "$(dirname "$1")"
