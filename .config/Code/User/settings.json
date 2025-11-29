@@ -32,4 +32,13 @@
     "python.defaultInterpreterPath": "/bin/python",
     "git.confirmSync": false,
     "python.analysis.typeCheckingMode": "basic",
+
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    }
 }
