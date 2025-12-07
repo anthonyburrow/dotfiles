@@ -6,12 +6,17 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+SCRIPT_NAME="$1"
+
+if [[ "$SCRIPT_NAME" =~ [[:space:]] ]]; then
+    echo "Error: Script name cannot contain spaces"
+    exit 1
+fi
+
 if [ -z "$GITHUB_USERNAME" ]; then
     echo "Error: GITHUB_USERNAME environment variable is not set"
     exit 1
 fi
-
-SCRIPT_NAME="$1"
 TEMPLATE_URL="https://github.com/$GITHUB_USERNAME/PythonScriptTemplate"
 
 mkdir -p "$HOME/dev"
@@ -27,6 +32,7 @@ git clone --depth 1 "$TEMPLATE_URL" "$TARGET_DIR"
 
 cd "$TARGET_DIR"
 rm -rf .git
+mv script.py "$SCRIPT_NAME.py"
 
 echo "✓ Script '$SCRIPT_NAME' created successfully"
 echo "  Location: $TARGET_DIR"
