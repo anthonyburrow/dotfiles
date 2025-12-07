@@ -5,7 +5,9 @@
             "label": "Auto Build",
             "type": "shell",
             "command": "~/.bin/build",
-            "args": ["${file}"],
+            "args": [
+                "${file}"
+            ],
             "problemMatcher": [],
             "group": {
                 "kind": "build",

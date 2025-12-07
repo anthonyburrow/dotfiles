@@ -4,7 +4,27 @@ source ~/.bashrc
 
 case "${1##*.}" in
     py)
-        .venv/bin/python "$1"
+        # Find the project root by walking up from the file's directory
+        file_path="$1"
+        file_dir=$(dirname "$(realpath "$file_path")")
+        project_root="$file_dir"
+        
+        # Search for .venv going up the directory tree
+        while [[ "$project_root" != "/" ]]; do
+            if [[ -d "$project_root/.venv" ]]; then
+                break
+            fi
+            project_root=$(dirname "$project_root")
+        done
+        
+        # Use the found venv, run from file's directory
+        if [[ -d "$project_root/.venv" ]]; then
+            cd "$file_dir"
+            "$project_root/.venv/bin/python" "$file_path"
+        else
+            # Fallback: try current directory's venv
+            .venv/bin/python "$1"
+        fi
         ;;
     tex)
         cd "$(dirname "$1")"
