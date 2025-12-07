@@ -1,0 +1,35 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: make_project <project_name>"
+    exit 1
+fi
+
+if [ -z "$GITHUB_USERNAME" ]; then
+    echo "Error: GITHUB_USERNAME environment variable is not set"
+    exit 1
+fi
+
+PROJECT_NAME="$1"
+TEMPLATE_URL="https://github.com/$GITHUB_USERNAME/PythonProjectTemplate"
+
+mkdir -p "$HOME/dev"
+TARGET_DIR="$HOME/dev/$PROJECT_NAME"
+
+if [ -d "$TARGET_DIR" ]; then
+    echo "Error: Directory '$TARGET_DIR' already exists"
+    exit 1
+fi
+
+echo "Creating project '$PROJECT_NAME' from template..."
+git clone --depth 1 "$TEMPLATE_URL" "$TARGET_DIR"
+
+cd "$TARGET_DIR"
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit from template"
+
+echo "  Project '$PROJECT_NAME' created successfully"
+echo "  Location: $TARGET_DIR"
