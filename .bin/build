@@ -2,29 +2,38 @@
 
 source ~/.bashrc
 
-case "${1##*.}" in
+extension="${1##*.}"
+
+case "$extension" in
     py)
-        # Find the project root by walking up from the file's directory
         file_path="$1"
         file_dir=$(dirname "$(realpath "$file_path")")
-        project_root="$file_dir"
-        
-        # Search for .venv going up the directory tree
-        while [[ "$project_root" != "/" ]]; do
-            if [[ -d "$project_root/.venv" ]]; then
+
+        venv_dir=""
+        current_dir="$file_dir"
+
+        while [[ "$current_dir" != "/" ]]; do
+            if [[ -d "$current_dir/.venv" ]]; then
+                venv_dir="$current_dir/.venv"
                 break
             fi
-            project_root=$(dirname "$project_root")
+            current_dir=$(dirname "$current_dir")
         done
-        
-        # Use the found venv, run from file's directory
-        if [[ -d "$project_root/.venv" ]]; then
-            cd "$file_dir"
-            "$project_root/.venv/bin/python" "$file_path"
+
+        fallback_venv="$HOME/.default_python/.venv"
+
+        if [[ -d "$venv_dir" ]]; then
+            python_bin="$venv_dir/bin/python"
+        elif [[ -d "$fallback_venv" ]]; then
+            python_bin="$fallback_venv/bin/python"
         else
-            # Fallback: try current directory's venv
-            .venv/bin/python "$1"
+            echo "Error: no .venv found and no fallback venv at $fallback_venv" >&2
+            exit 1
         fi
+
+        echo "Python: $python_bin"
+        cd "$file_dir"
+        "$python_bin" "$file_path"
         ;;
     tex)
         cd "$(dirname "$1")"

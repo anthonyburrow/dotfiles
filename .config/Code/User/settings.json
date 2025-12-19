@@ -29,8 +29,9 @@
     "explorer.autoReveal": false,
     "window.confirmSaveUntitledWorkspace": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "python.defaultInterpreterPath": "/bin/python",
     "git.confirmSync": false,
+    "python.defaultInterpreterPath": "/bin/python",
+    "python.venvPath": "/home/masamune/.default_python",
     "python.analysis.typeCheckingMode": "basic",
 
     "[python]": {
