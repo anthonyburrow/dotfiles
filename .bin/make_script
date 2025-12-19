@@ -1,8 +1,60 @@
 #!/bin/bash
 set -e
 
+print_usage() {
+    echo "Usage: make_script [-h|--here] <script_name>"
+    echo "  -h|--here   Create the template in the current directory using a temp clone"
+}
+
+if [ "$1" = "-h" ] || [ "$1" = "--here" ]; then
+    MODE="here"
+    shift
+else
+    MODE="default"
+fi
+
+if [ -z "$GITHUB_USERNAME" ]; then
+    echo "Error: GITHUB_USERNAME environment variable is not set"
+    exit 1
+fi
+TEMPLATE_URL="https://github.com/$GITHUB_USERNAME/PythonScriptTemplate"
+
+if [ "$MODE" = "here" ]; then
+    TMP_DIR=$(mktemp -d)
+    echo "Cloning template into temporary directory..."
+    git clone --depth 1 "$TEMPLATE_URL" "$TMP_DIR"
+
+    cd "$TMP_DIR"
+    rm -rf .git
+
+    shopt -s dotglob nullglob
+    for entry in * .*; do
+        name=$(basename "$entry")
+        if [ "$name" = "." ] || [ "$name" = ".." ] || [ "$name" = ".git" ]; then
+            continue
+        fi
+        if [ -e "${OLDPWD}/$name" ]; then
+            echo "Error: '$name' already exists in the current directory; aborting to avoid overwrite"
+            exit 1
+        fi
+    done
+
+    for entry in * .*; do
+        name=$(basename "$entry")
+        if [ "$name" = "." ] || [ "$name" = ".." ] || [ "$name" = ".git" ]; then
+            continue
+        fi
+        mv "$entry" "${OLDPWD}/$name"
+    done
+
+    cd "$OLDPWD"
+    rm -rf "$TMP_DIR"
+    echo "Template copied to current directory"
+    exit 0
+fi
+
 if [ -z "$1" ]; then
-    echo "Usage: make_script <script_name>"
+    print_usage
     exit 1
 fi
 
@@ -12,12 +64,6 @@ if [[ "$SCRIPT_NAME" =~ [[:space:]] ]]; then
     echo "Error: Script name cannot contain spaces"
     exit 1
 fi
-
-if [ -z "$GITHUB_USERNAME" ]; then
-    echo "Error: GITHUB_USERNAME environment variable is not set"
-    exit 1
-fi
-TEMPLATE_URL="https://github.com/$GITHUB_USERNAME/PythonScriptTemplate"
 
 mkdir -p "$HOME/dev"
 TARGET_DIR="$HOME/dev/$SCRIPT_NAME"

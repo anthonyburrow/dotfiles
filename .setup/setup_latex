@@ -10,5 +10,6 @@ sudo pacman -S --needed --noconfirm \
     texlive-binextra \
     texlive-plaingeneric \
     texlive-fontsrecommended \
+    texlive-fontsextra \
 
 echo "Done."
