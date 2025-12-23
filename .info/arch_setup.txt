@@ -148,7 +148,7 @@ ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc
 
 # install vi
-pacman -Syu vim
+pacman -Syu vi vim
 
 # Set locale
 locale-gen
