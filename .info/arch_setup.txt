@@ -148,18 +148,18 @@ ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc
 
 # install vi
-pacman -Syu vi
+pacman -Syu vim
 
 # Set locale
 locale-gen
 
 # uncomment "en_US.UTF-8 UTF-8" from /etc/locale.gen
-vi /etc/locale.gen
+vim /etc/locale.gen
 
 # create /etc/locale.conf and put in "LANG=en_US.UTF-8"
-vi /etc/locale.conf
+vim /etc/locale.conf
 
-sudo locale-gen en_US.UTF-8
+locale-gen en_US.UTF-8
 
 # set the password
 passwd
@@ -168,8 +168,7 @@ passwd
 //// pacman -Syu iwd
 
 # Internet stuff
-pacman -Syu networkmanager
-pacman -Syu network-manager-applet
+pacman -Syu networkmanager network-manager-applet
 
 # exit and restart, done with install USB
 exit
