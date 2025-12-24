@@ -53,6 +53,7 @@ dotfiles config --local status.showUntrackedFiles no
 # rice #
 ########
 
+# Get .secret and get env.sh variables
 .setup/setup_git
 
 cat ~/.ssh/id_ed25519.pub
