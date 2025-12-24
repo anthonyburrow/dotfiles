@@ -4,7 +4,7 @@ set -e
 echo "[*] Installing NVIDIA packages..."
 
 sudo pacman -S --needed --noconfirm \
-    nvidia \
+    nvidia-open \
     nvidia-utils \
     nvidia-settings \
 
